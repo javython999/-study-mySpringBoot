@@ -16,7 +16,8 @@ public class MySpringBootApplication {
         TomcatServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
         WebServer webServer = serverFactory.getWebServer(servletContext -> {
             servletContext
-                    .addServlet("dispatcherServlet", new DispatcherServlet(applicationContext)).addMapping("/*");
+                    .addServlet("dispatcherServlet", new DispatcherServlet(applicationContext))
+                    .addMapping("/*");
         });
         webServer.start();
     }
