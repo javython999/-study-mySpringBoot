@@ -1,7 +1,5 @@
 package com.example.config;
 
-import com.example.config.autoconfig.DispatcherServletConfiguration;
-import com.example.config.autoconfig.TomcatWebServerConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,6 +13,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Configuration
 @ComponentScan
-@Import({DispatcherServletConfiguration.class, TomcatWebServerConfiguration.class})
+@Import(MyAutoConfigImportSelector.class)
 public @interface EnableMyAutoConfiguration {
 }
