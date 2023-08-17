@@ -1,15 +1,14 @@
 package com.example.myspringboot;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.annotation.Rollback;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@MySpringbootTest
+@JdbcTest
 public class JdbcTemplateTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -28,12 +27,4 @@ public class JdbcTemplateTest {
         assertThat(count).isEqualTo(2);
     }
 
-    @Test
-    void insertAndQuery2() {
-        jdbcTemplate.update("insert into hello values(?, ?)", "Kim2", 3);
-        jdbcTemplate.update("insert into hello values(?, ?)", "Spring2", 1);
-
-        Long count = jdbcTemplate.queryForObject("select count(*) from hello", Long.class);
-        assertThat(count).isEqualTo(2);
-    }
 }

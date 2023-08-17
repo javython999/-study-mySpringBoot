@@ -1,12 +1,12 @@
 package com.example.myspringboot;
 
-import com.example.config.MySpringBootApp;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.PostConstruct;
 
-@MySpringBootApp
+@SpringBootApplication
 public class MySpringBootApplication {
 
     private final JdbcTemplate jdbcTemplate;
